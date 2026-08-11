@@ -143,6 +143,21 @@ a:hover { text-decoration: underline; }
 .edu-school { font-size: 0.9rem; color: var(--text-secondary); font-style: italic; }
 .edu-detail { font-size: 0.85rem; color: var(--text-light); margin-top: 4px; }
 
+/* PROJECT EXPERIENCE */
+.proj-list { list-style: none; }
+.proj-item {
+  padding: 10px 16px; margin-bottom: 8px;
+  background: var(--bg-section); border-radius: 10px;
+  border-left: 3px solid var(--primary);
+}
+.proj-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 12px; flex-wrap: wrap;
+}
+.proj-title { font-weight: 600; font-size: 0.95rem; }
+.proj-date { font-size: 0.8rem; color: var(--text-light); white-space: nowrap; }
+.proj-desc { font-size: 0.88rem; color: var(--text-secondary); margin-top: 4px; line-height: 1.6; }
+
 /* RESEARCH */
 .research-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;
@@ -251,6 +266,7 @@ footer {
   <ul class="nav-links">
     <li><a href="#about" data-en="Home" data-zh="主页">Home</a></li>
     <li><a href="#education" data-en="Education" data-zh="教育经历">Education</a></li>
+    <li><a href="#projects" data-en="Projects" data-zh="项目经验">Projects</a></li>
     <li><a href="#publications" data-en="Publications" data-zh="论文">Publications</a></li>
     <li><a href="#patents" data-en="Patents" data-zh="专利">Patents</a></li>
     <li><a href="#conferences" data-en="Conferences" data-zh="会议">Conferences</a></li>
@@ -335,6 +351,44 @@ footer {
 </div>
 </section>
 
+<!-- PROJECT EXPERIENCE -->
+<section class="section" id="projects">
+<div class="lang-en">
+  <div class="section-title"><span class="emoji">🛠️</span> Project Experience</div>
+  <ul class="proj-list">
+    <li class="proj-item">
+      <div class="proj-header"><span class="proj-title">Precision Roll Forming Digital Twin System (Master's Thesis)</span><span class="proj-date">2022 – 2024</span></div>
+      <div class="proj-desc">Built a high-fidelity digital twin framework for roll forming, enabling full lifecycle, self-adaptive production monitoring.</div>
+    </li>
+    <li class="proj-item">
+      <div class="proj-header"><span class="proj-title">Shensi Shape — Intelligent Roll Forming Factory</span><span class="proj-date">2023 – 2024</span></div>
+      <div class="proj-desc">Contributed to building China's first intelligent roll-forming factory integrating digital twin and flexible manufacturing.</div>
+    </li>
+    <li class="proj-item">
+      <div class="proj-header"><span class="proj-title">Industrial Software Development</span><span class="proj-date">2022 – 2023</span></div>
+      <div class="proj-desc">Led a team to develop industrial software comparable to COPRA, an industry-standard system with annual licensing costs exceeding one million RMB.</div>
+    </li>
+  </ul>
+</div>
+<div class="lang-zh">
+  <div class="section-title"><span class="emoji">🛠️</span> 项目经验</div>
+  <ul class="proj-list">
+    <li class="proj-item">
+      <div class="proj-header"><span class="proj-title">精密辊压成形数字孪生系统（硕士论文）</span><span class="proj-date">2022 – 2024</span></div>
+      <div class="proj-desc">构建辊压成形高保真数字孪生框架，实现全生命周期自适应生产监控。</div>
+    </li>
+    <li class="proj-item">
+      <div class="proj-header"><span class="proj-title">Shensi Shape — 智能辊压成形工厂</span><span class="proj-date">2023 – 2024</span></div>
+      <div class="proj-desc">参与建设中国首个融合数字孪生与柔性制造的智能辊压成形工厂。</div>
+    </li>
+    <li class="proj-item">
+      <div class="proj-header"><span class="proj-title">工业软件开发</span><span class="proj-date">2022 – 2023</span></div>
+      <div class="proj-desc">带队开发对标 COPRA 的辊压成形工业软件（COPRA 年授权费超百万元人民币）。</div>
+    </li>
+  </ul>
+</div>
+</section>
+
 <!-- RESEARCH FOCUS -->
 <section class="section" id="research">
 <div class="lang-en">
@@ -368,6 +422,7 @@ footer {
   </ol>
   <div class="sub-title">🧩 Co-author</div>
   <ol class="pub-list">
+    <li class="pub-item">Jinyi Huang, Hao Zheng, <strong>Yinwang Ren</strong>, Wenqing Wan, Xun Xu, Jan Polzer. (2027). Video2Knowledge: Extracting temporally consistent task knowledge from monocular video for robot skill learning. <em>Robotics and Computer-Integrated Manufacturing</em>. <a href="https://doi.org/10.1016/j.rcim.2026.103371" target="_blank">DOI</a></li>
     <li class="pub-item">Jingsheng He, Shiyi Cu, Hui Xia, Yong Sun, Wenchao Xiao, <strong>Yinwang Ren</strong>. (2025). High Accuracy Roll Forming Springback Prediction Model of SVR Based on SA-PSO Optimization. <em>Journal of Intelligent Manufacturing</em>. <a href="https://doi.org/10.1007/s10845-023-02222-0" target="_blank">DOI</a></li>
     <li class="pub-item">Jie Dong, <strong>Yinwang Ren</strong>, et al. (2024). A novel real data-driven springback prediction method for roll forming based on digital twin. <em>International Journal of Computer Integrated Manufacturing</em>. <a href="https://doi.org/10.1080/0951192X.2025.2478012" target="_blank">DOI</a></li>
     <li class="pub-item">J. He, <strong>Y. Ren</strong>, et al. (2024). Data-Driven Approach for Minimizing Springback in Roll Forming: An Adaptive Process Parameter Control Strategy. <em>43rd IDDRG 2024</em>. <a href="https://doi.org/10.1088/1757-899X/1307/1/012033" target="_blank">DOI</a></li>
@@ -388,6 +443,7 @@ footer {
   </ol>
   <div class="sub-title">🧩 合作论文</div>
   <ol class="pub-list">
+    <li class="pub-item">Jinyi Huang, Hao Zheng, <strong>Yinwang Ren</strong>, Wenqing Wan, Xun Xu, Jan Polzer. (2027). Video2Knowledge: Extracting temporally consistent task knowledge from monocular video for robot skill learning. <em>Robotics and Computer-Integrated Manufacturing</em>. <a href="https://doi.org/10.1016/j.rcim.2026.103371" target="_blank">DOI</a></li>
     <li class="pub-item">Jingsheng He, Shiyi Cu, Hui Xia, Yong Sun, Wenchao Xiao, <strong>Yinwang Ren</strong>. (2025). High Accuracy Roll Forming Springback Prediction Model of SVR Based on SA-PSO Optimization. <em>Journal of Intelligent Manufacturing</em>. <a href="https://doi.org/10.1007/s10845-023-02222-0" target="_blank">DOI</a></li>
     <li class="pub-item">Jie Dong, <strong>Yinwang Ren</strong> 等 (2024). A novel real data-driven springback prediction method for roll forming based on digital twin. <em>International Journal of Computer Integrated Manufacturing</em>. <a href="https://doi.org/10.1080/0951192X.2025.2478012" target="_blank">DOI</a></li>
     <li class="pub-item">J. He, <strong>Y. Ren</strong> 等 (2024). Data-Driven Approach for Minimizing Springback in Roll Forming. <em>第43届IDDRG 2024</em>. <a href="https://doi.org/10.1088/1757-899X/1307/1/012033" target="_blank">DOI</a></li>
