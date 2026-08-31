@@ -188,11 +188,6 @@ a:hover { text-decoration: underline; }
   display: flex; align-items: center; justify-content: center;
 }
 .pub-item em { color: var(--text-secondary); }
-.badge {
-  display: inline-block; background: #e8f5e9; color: #2e7d32;
-  font-size: 0.72rem; font-weight: 600; padding: 1px 7px;
-  border-radius: 4px; margin-left: 4px; vertical-align: middle;
-}
 
 /* PATENTS */
 .patent-list { list-style: none; }
@@ -215,20 +210,22 @@ a:hover { text-decoration: underline; }
 .conf-item .conf-icon { color: var(--primary); flex-shrink: 0; }
 
 /* AWARDS */
-.award-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px;
-}
+.award-grid { display: flex; flex-direction: column; gap: 4px; }
 .award-card {
-  padding: 14px 16px; background: var(--bg-section); border-radius: 10px;
-  transition: transform 0.2s, box-shadow 0.2s; cursor: default;
+  padding: 9px 14px; background: var(--bg-section); border-radius: 8px;
+  display: flex; align-items: center; gap: 12px; cursor: default;
 }
-.award-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.award-emoji { font-size: 1.3rem; margin-bottom: 4px; display: block; }
-.award-name { font-weight: 600; font-size: 0.88rem; margin-bottom: 4px; line-height: 1.4; }
+.award-emoji { font-size: 1.05rem; flex-shrink: 0; line-height: 1; }
+.award-name { font-weight: 600; font-size: 0.88rem; line-height: 1.4; flex: 1; }
 .award-meta {
   font-size: 0.78rem; color: var(--text-light); font-weight: 500;
-  background: var(--primary-light); display: inline-block;
+  background: var(--primary-light); flex-shrink: 0; white-space: nowrap;
   padding: 2px 10px; border-radius: 20px;
+}
+@media (max-width: 560px) {
+  .award-card { flex-wrap: wrap; }
+  .award-name { flex: 1 1 100%; order: 2; }
+  .award-meta { order: 3; }
 }
 
 /* FOOTER */
@@ -270,6 +267,7 @@ footer {
     <li><a href="#publications" data-en="Publications" data-zh="论文">Publications</a></li>
     <li><a href="#patents" data-en="Patents" data-zh="专利">Patents</a></li>
     <li><a href="#conferences" data-en="Conferences" data-zh="会议">Conferences</a></li>
+    <li><a href="#service" data-en="Service" data-zh="学术服务">Service</a></li>
     <li><a href="#awards" data-en="Awards" data-zh="荣誉">Awards</a></li>
   </ul>
   <button class="lang-btn" id="langBtn" onclick="toggleLang()">中文</button>
@@ -358,15 +356,15 @@ footer {
   <ul class="proj-list">
     <li class="proj-item">
       <div class="proj-header"><span class="proj-title">Precision Roll Forming Digital Twin System (Master's Thesis)</span><span class="proj-date">2022 – 2024</span></div>
-      <div class="proj-desc">Built a high-fidelity digital twin framework for roll forming, enabling full lifecycle, self-adaptive production monitoring.</div>
+      <div class="proj-desc">Developed a digital twin framework for roll forming, supporting full-lifecycle data management and adaptive production monitoring.</div>
     </li>
     <li class="proj-item">
       <div class="proj-header"><span class="proj-title">Shensi Shape — Intelligent Roll Forming Factory</span><span class="proj-date">2023 – 2024</span></div>
-      <div class="proj-desc">Contributed to building China's first intelligent roll-forming factory integrating digital twin and flexible manufacturing.</div>
+      <div class="proj-desc">Contributed to building an intelligent roll-forming factory integrating digital twin and flexible manufacturing.</div>
     </li>
     <li class="proj-item">
       <div class="proj-header"><span class="proj-title">Industrial Software Development</span><span class="proj-date">2022 – 2023</span></div>
-      <div class="proj-desc">Led a team to develop industrial software comparable to COPRA, an industry-standard system with annual licensing costs exceeding one million RMB.</div>
+      <div class="proj-desc">Led a team developing in-house roll forming process design software as an alternative to commercial packages such as COPRA.</div>
     </li>
   </ul>
 </div>
@@ -375,15 +373,15 @@ footer {
   <ul class="proj-list">
     <li class="proj-item">
       <div class="proj-header"><span class="proj-title">精密辊压成形数字孪生系统（硕士论文）</span><span class="proj-date">2022 – 2024</span></div>
-      <div class="proj-desc">构建辊压成形高保真数字孪生框架，实现全生命周期自适应生产监控。</div>
+      <div class="proj-desc">构建面向辊压成形的数字孪生框架，支持全生命周期数据管理与自适应生产监控。</div>
     </li>
     <li class="proj-item">
       <div class="proj-header"><span class="proj-title">Shensi Shape — 智能辊压成形工厂</span><span class="proj-date">2023 – 2024</span></div>
-      <div class="proj-desc">参与建设中国首个融合数字孪生与柔性制造的智能辊压成形工厂。</div>
+      <div class="proj-desc">参与建设融合数字孪生与柔性制造的智能辊压成形工厂。</div>
     </li>
     <li class="proj-item">
       <div class="proj-header"><span class="proj-title">工业软件开发</span><span class="proj-date">2022 – 2023</span></div>
-      <div class="proj-desc">带队开发对标 COPRA 的辊压成形工业软件（COPRA 年授权费超百万元人民币）。</div>
+      <div class="proj-desc">带队自主开发辊压成形工艺设计软件，作为 COPRA 等商业软件的替代方案。</div>
     </li>
   </ul>
 </div>
@@ -415,8 +413,8 @@ footer {
   <div class="section-title"><span class="emoji">📝</span> Publications</div>
   <div class="sub-title">🧠 First Author</div>
   <ol class="pub-list">
-    <li class="pub-item"><strong>Yinwang Ren</strong>, et al. (2025). AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing. <em>Journal of Manufacturing Systems</em>. <span class="badge">CAS Q1 Top</span> <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong>, et al. (2024). A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming. <em>Advanced Engineering Informatics</em>. <span class="badge">CAS Q1 Top</span> <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>Yinwang Ren</strong>, et al. (2025). AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing. <em>Journal of Manufacturing Systems</em>. <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>Yinwang Ren</strong>, et al. (2024). A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming. <em>Advanced Engineering Informatics</em>. <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></li>
     <li class="pub-item"><strong>Yinwang Ren</strong>, et al. (2024). Intelligent Roll Forming Equipment (System) and Analysis of Its Application Cases. <em>Transactions of Nanjing University of Aeronautics and Astronautics</em>. <a href="https://doi.org/10.16356/j.1005-2615.2024.01.005" target="_blank">DOI</a></li>
     <li class="pub-item"><strong>Yinwang Ren</strong>, et al. (2022). Digitization of Roll Forming and Its Application. <em>The 19th International Conference on Metal Forming (MF 2022)</em>. <a href="https://doi.org/10.1088/1757-899X/1270/1/012010" target="_blank">DOI</a></li>
   </ol>
@@ -436,8 +434,8 @@ footer {
   <div class="section-title"><span class="emoji">📝</span> 学术论文</div>
   <div class="sub-title">🧠 第一作者</div>
   <ol class="pub-list">
-    <li class="pub-item"><strong>Yinwang Ren</strong> 等 (2025). AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing. <em>Journal of Manufacturing Systems</em>. <span class="badge">中科院Q1 Top</span> <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong> 等 (2024). A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming. <em>Advanced Engineering Informatics</em>. <span class="badge">中科院Q1 Top</span> <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>Yinwang Ren</strong> 等 (2025). AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing. <em>Journal of Manufacturing Systems</em>. <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>Yinwang Ren</strong> 等 (2024). A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming. <em>Advanced Engineering Informatics</em>. <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></li>
     <li class="pub-item"><strong>Yinwang Ren</strong> 等 (2024). 智能辊压成形装备（系统）及其应用案例分析. <em>南京航空航天大学学报</em>. <a href="https://doi.org/10.16356/j.1005-2615.2024.01.005" target="_blank">DOI</a></li>
     <li class="pub-item"><strong>Yinwang Ren</strong> 等 (2022). Digitization of Roll Forming and Its Application. <em>第19届国际金属成形会议 (MF 2022)</em>. <a href="https://doi.org/10.1088/1757-899X/1270/1/012010" target="_blank">DOI</a></li>
   </ol>
@@ -502,6 +500,7 @@ footer {
 <div class="lang-en">
   <div class="section-title"><span class="emoji">🏃</span> Conference Participation</div>
   <ul class="conf-list">
+    <li class="conf-item"><i class="fas fa-map-pin conf-icon"></i> <span>The 2nd International Young Leaders Forum (IYLF 2026) — Innovation for Sustainable Future, Auckland, New Zealand, August 2026. <em>Research Excellence Award (Digital Technology &amp; Intelligent Systems) – Runner-up.</em></span></li>
     <li class="conf-item"><i class="fas fa-map-pin conf-icon"></i> The 8th International Conference on Digital Twin and Intelligent Manufacturing Services, Hangzhou, China, July 2024.</li>
     <li class="conf-item"><i class="fas fa-map-pin conf-icon"></i> The 18th National Conference on Plastic Engineering &amp; The 10th Global Chinese Plastic Technology Symposium, Wuhan, China, October 2023.</li>
     <li class="conf-item"><i class="fas fa-map-pin conf-icon"></i> 2023 NSFC-RGC Conference on Frontiers of Industrial Big Data and Intelligent Systems, Hong Kong, China, April 2023.</li>
@@ -511,10 +510,41 @@ footer {
 <div class="lang-zh">
   <div class="section-title"><span class="emoji">🏃</span> 学术会议</div>
   <ul class="conf-list">
+    <li class="conf-item"><i class="fas fa-map-pin conf-icon"></i> <span>第二届国际青年领袖论坛 (IYLF 2026) —— Innovation for Sustainable Future，新西兰奥克兰，2026年8月。<em>获科研卓越奖（数字技术与智能系统方向）亚军。</em></span></li>
     <li class="conf-item"><i class="fas fa-map-pin conf-icon"></i> 第八届数字孪生与智能制造服务国际会议，杭州，2024年7月。</li>
     <li class="conf-item"><i class="fas fa-map-pin conf-icon"></i> 第18届全国塑性工程学术年会暨第10届全球华人塑性技术研讨会，武汉，2023年10月。</li>
     <li class="conf-item"><i class="fas fa-map-pin conf-icon"></i> 2023年NSFC-RGC工业大数据与智能系统前沿论坛，香港，2023年4月。</li>
     <li class="conf-item"><i class="fas fa-map-pin conf-icon"></i> 第19届国际金属成形会议 (MF 2022)，太原，2022年9月。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ACADEMIC SERVICE -->
+<section class="section" id="service">
+<div class="lang-en">
+  <div class="section-title"><span class="emoji">🤝</span> Academic Service</div>
+  <div class="sub-title">📝 Journal Reviewer</div>
+  <ul class="conf-list">
+    <li class="conf-item"><i class="fas fa-pen-nib conf-icon"></i> Robotics and Computer-Integrated Manufacturing</li>
+    <li class="conf-item"><i class="fas fa-pen-nib conf-icon"></i> Engineering Applications of Artificial Intelligence</li>
+    <li class="conf-item"><i class="fas fa-pen-nib conf-icon"></i> International Journal of Information Management Data Insights</li>
+  </ul>
+  <div class="sub-title">🎤 Conference Service</div>
+  <ul class="conf-list">
+    <li class="conf-item"><i class="fas fa-gavel conf-icon"></i> Session Chair, The 2nd International Young Leaders Forum (IYLF 2026), Auckland, New Zealand.</li>
+  </ul>
+</div>
+<div class="lang-zh">
+  <div class="section-title"><span class="emoji">🤝</span> 学术服务</div>
+  <div class="sub-title">📝 期刊审稿</div>
+  <ul class="conf-list">
+    <li class="conf-item"><i class="fas fa-pen-nib conf-icon"></i> Robotics and Computer-Integrated Manufacturing</li>
+    <li class="conf-item"><i class="fas fa-pen-nib conf-icon"></i> Engineering Applications of Artificial Intelligence</li>
+    <li class="conf-item"><i class="fas fa-pen-nib conf-icon"></i> International Journal of Information Management Data Insights</li>
+  </ul>
+  <div class="sub-title">🎤 会议服务</div>
+  <ul class="conf-list">
+    <li class="conf-item"><i class="fas fa-gavel conf-icon"></i> 第二届国际青年领袖论坛 (IYLF 2026) 分会场主席，新西兰奥克兰。</li>
   </ul>
 </div>
 </section>
