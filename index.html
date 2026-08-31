@@ -102,6 +102,7 @@ nav {
 }
 .social-links a:hover { background: var(--primary-light); color: var(--primary); }
 .social-links i { width: 20px; text-align: center; font-size: 1rem; }
+.email-link #emailText { font-size: 0.78rem; }
 
 /* ===== MAIN CONTENT ===== */
 .main-content { flex: 1; min-width: 0; padding-bottom: 40px; }
@@ -246,7 +247,6 @@ footer {
   .section { padding: 20px 18px; }
   .nav-links a { font-size: 0.78rem; padding: 6px 8px; }
   .research-grid { grid-template-columns: 1fr; }
-  .award-grid { grid-template-columns: 1fr; }
   .pub-item { padding-left: 44px; }
 }
 @media (max-width: 480px) {
@@ -284,7 +284,7 @@ footer {
   <div class="sidebar-bio lang-zh">任银旺 · 新西兰奥克兰大学博士研究生</div>
   <div class="sidebar-location"><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</div>
   <ul class="social-links">
-    <li><a href="mailto:yren184@aucklanduni.ac.nz"><i class="fas fa-envelope"></i> Email</a></li>
+    <li><a href="mailto:yinwang.ren@auckland.ac.nz" class="email-link" onclick="copyEmail()" title="Click to copy"><i class="fas fa-envelope"></i> <span id="emailText">yinwang.ren@auckland.ac.nz</span></a></li>
     <li><a href="https://www.researchgate.net/profile/Yinwang-Ren" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a></li>
     <li><a href="https://scholar.google.com/citations?user=dPtQQFsAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
     <li><a href="https://orcid.org/0009-0003-0458-7750" target="_blank"><i class="ai ai-orcid"></i> ORCID</a></li>
@@ -600,6 +600,24 @@ function setLang(lang) {
   document.getElementById('langBtn').textContent = lang === 'en' ? '中文' : 'EN';
   var navs = document.querySelectorAll('[data-en]');
   for (var i = 0; i < navs.length; i++) navs[i].textContent = navs[i].getAttribute('data-' + lang);
+}
+function copyEmail() {
+  var addr = 'yinwang.ren@auckland.ac.nz';
+  var el = document.getElementById('emailText');
+  var done = function () {
+    el.textContent = 'Copied!';
+    setTimeout(function () { el.textContent = addr; }, 1500);
+  };
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(addr).then(done, function () {});
+  } else {
+    var t = document.createElement('textarea');
+    t.value = addr;
+    document.body.appendChild(t);
+    t.select();
+    try { document.execCommand('copy'); done(); } catch (err) {}
+    document.body.removeChild(t);
+  }
 }
 function toggleLang() {
   var c = document.documentElement.getAttribute('data-lang') || 'en';
