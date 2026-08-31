@@ -280,7 +280,7 @@ footer {
 <aside class="sidebar">
   <div class="avatar-wrapper"><img src="images/Me.jpg" alt="Yinwang Ren"></div>
   <div class="sidebar-name">Yinwang Ren</div>
-  <div class="sidebar-bio lang-en">A PhD Student at the University of Auckland</div>
+  <div class="sidebar-bio lang-en">A PhD Candidate at the University of Auckland</div>
   <div class="sidebar-bio lang-zh">任银旺 · 新西兰奥克兰大学博士研究生</div>
   <div class="sidebar-location"><i class="fas fa-map-marker-alt"></i> Auckland, New Zealand</div>
   <ul class="social-links">
@@ -297,7 +297,7 @@ footer {
 <section class="section" id="about">
 <div class="lang-en">
   <div class="section-title"><span class="emoji">👋</span> About Me</div>
-  <p>Hello, thank you for coming over. I am a PhD Student in the <a href="https://lisms.auckland.ac.nz" target="_blank">Laboratory for Industry 4.0 Smart Manufacturing Systems</a> at the Faculty of Engineering, University of Auckland. I am supervised by <a href="https://profiles.auckland.ac.nz/x-xu" target="_blank">Professor Xun Xu</a> and <a href="https://profiles.auckland.ac.nz/jan-polzer" target="_blank">Dr. Jan Polzer</a>.</p>
+  <p>Hello, thank you for coming over. I am a PhD Candidate in the <a href="https://lisms.auckland.ac.nz" target="_blank">Laboratory for Industry 4.0 Smart Manufacturing Systems</a> at the Faculty of Engineering, University of Auckland. I am supervised by <a href="https://profiles.auckland.ac.nz/x-xu" target="_blank">Professor Xun Xu</a> and <a href="https://profiles.auckland.ac.nz/jan-polzer" target="_blank">Dr. Jan Polzer</a>.</p>
   <p>My research interests include <strong>smart manufacturing systems</strong>, <strong>autonomous manufacturing</strong>, and <strong>industrial AI</strong>. My current research focuses on agentic manufacturing, aiming to develop intelligent, autonomous manufacturing systems capable of self-organising manufacturing resources.</p>
 </div>
 <div class="lang-zh">
@@ -585,13 +585,14 @@ footer {
 </div>
 
 <footer>
-  <span class="lang-en">&copy; 2025 Yinwang Ren. All rights reserved.</span>
-  <span class="lang-zh">&copy; 2025 任银旺 (Yinwang Ren). All rights reserved.</span>
+  <span class="lang-en">&copy; <span class="year">2026</span> Yinwang Ren. All rights reserved.</span>
+  <span class="lang-zh">&copy; <span class="year">2026</span> 任银旺 (Yinwang Ren). All rights reserved.</span>
 </footer>
 
 <script>
 function setLang(lang) {
   document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
   localStorage.setItem('site-lang', lang);
   var en = document.querySelectorAll('.lang-en');
   var zh = document.querySelectorAll('.lang-zh');
@@ -624,6 +625,9 @@ function toggleLang() {
   setLang(c === 'en' ? 'zh' : 'en');
 }
 setLang(localStorage.getItem('site-lang') || 'en');
+
+var years = document.querySelectorAll('.year');
+for (var i = 0; i < years.length; i++) years[i].textContent = new Date().getFullYear();
 </script>
 
 </body>
