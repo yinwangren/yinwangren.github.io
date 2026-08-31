@@ -248,10 +248,22 @@ footer {
   .nav-links a { font-size: 0.78rem; padding: 6px 8px; }
   .research-grid { grid-template-columns: 1fr; }
   .pub-item { padding-left: 44px; }
+  /* keep the language button pinned; let the links scroll instead */
+  nav { padding: 0 12px; }
+  .nav-inner { gap: 8px; }
+  .nav-links {
+    flex: 1 1 auto; min-width: 0;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; -ms-overflow-style: none;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { white-space: nowrap; }
+  .lang-btn { flex-shrink: 0; }
 }
 @media (max-width: 480px) {
   .nav-links { gap: 0; }
   .nav-links a { font-size: 0.72rem; padding: 4px 5px; }
+  .lang-btn { font-size: 0.72rem; padding: 5px 10px; }
 }
 </style>
 </head>
