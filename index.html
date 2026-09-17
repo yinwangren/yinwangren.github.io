@@ -223,6 +223,18 @@ a:hover { text-decoration: underline; }
   background: var(--primary-light); flex-shrink: 0; white-space: nowrap;
   padding: 2px 10px; border-radius: 20px;
 }
+.extra-content { display: none; }
+.collapsible-section.expanded > .extra-content { display: block; }
+.award-grid.expanded > .extra-content { display: contents; }
+.show-more-btn {
+  margin: 10px auto 0; padding: 7px 16px;
+  border: 1px solid var(--primary); border-radius: 20px;
+  background: var(--bg); color: var(--primary); cursor: pointer;
+  font: inherit; font-size: 0.82rem; font-weight: 600;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.show-more-btn:hover { background: var(--primary-light); box-shadow: var(--shadow-sm); }
+.show-more-btn:focus-visible { outline: 3px solid rgba(26,115,232,0.3); outline-offset: 2px; }
 @media (max-width: 560px) {
   .award-card { flex-wrap: wrap; }
   .award-name { flex: 1 1 100%; order: 2; }
@@ -282,7 +294,7 @@ footer {
     <li><a href="#service" data-en="Service" data-zh="学术服务">Service</a></li>
     <li><a href="#awards" data-en="Awards" data-zh="荣誉">Awards</a></li>
   </ul>
-  <button class="lang-btn" id="langBtn" onclick="toggleLang()">中文</button>
+  <button class="lang-btn" id="langBtn" type="button" onclick="toggleLang()">中文</button>
 </div>
 </nav>
 
@@ -408,7 +420,7 @@ footer {
   <div class="research-grid">
     <div class="research-card"><strong>Agentic Manufacturing Systems</strong><span>Autonomous and intelligent manufacturing systems capable of self-organizing and coordinating manufacturing resources through multi-agent collaboration.</span></div>
     <div class="research-card"><strong>Industrial AI</strong><span>Data and learning-driven methods for process optimization, adaptive control, and decision-making in manufacturing.</span></div>
-    <div class="research-card"><strong>Digital Twin & Smart Manufacturing</strong><span>Integration of digital twins and cyber-physical systems for connected, resilient production environments.</span></div>
+    <div class="research-card"><strong>Digital Twin &amp; Smart Manufacturing</strong><span>Integration of digital twins and cyber-physical systems for connected, resilient production environments.</span></div>
   </div>
 </div>
 <div class="lang-zh">
@@ -427,42 +439,42 @@ footer {
   <div class="section-title"><span class="emoji">📝</span> Publications</div>
   <div class="sub-title">🧠 First Author</div>
   <ol class="pub-list">
-    <li class="pub-item"><strong>Yinwang Ren</strong>, et al. (2025). AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing. <em>Journal of Manufacturing Systems</em>. <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong>, et al. (2024). A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming. <em>Advanced Engineering Informatics</em>. <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong>, et al. (2024). Intelligent Roll Forming Equipment (System) and Analysis of Its Application Cases. <em>Transactions of Nanjing University of Aeronautics and Astronautics</em>. <a href="https://doi.org/10.16356/j.1005-2615.2024.01.005" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong>, et al. (2022). Digitization of Roll Forming and Its Application. <em>The 19th International Conference on Metal Forming (MF 2022)</em>. <a href="https://doi.org/10.1088/1757-899X/1270/1/012010" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>Yinwang Ren</strong>, Yangyang Liu, Tang Ji, Xun Xu. (2025). AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing. <em>Journal of Manufacturing Systems</em>. <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>Yinwang Ren</strong>, Jie Dong, Jingsheng He, Dongxing Zhang, Kang Wu, Ziliu Xiong, Pai Zheng, Yong Sun, Shimin Liu. (2024). A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming. <em>Advanced Engineering Informatics</em>. <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>Yinwang Ren</strong>, Jingsheng He, Jiang Liu, Ziliu Xiong, Junfeng Xiao, Kang Wu, Yong Sun. (2024). Intelligent Roll Forming Equipment (System) and Analysis of Its Application Cases. <em>Transactions of Nanjing University of Aeronautics and Astronautics</em>. <a href="https://doi.org/10.16356/j.1005-2615.2024.01.005" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>Yinwang Ren</strong>, Jie Dong, Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Jun Yang. (2022). Digitization of Roll Forming and Its Application. <em>The 19th International Conference on Metal Forming (MF 2022)</em>. <a href="https://doi.org/10.1088/1757-899X/1270/1/012010" target="_blank">DOI</a></li>
   </ol>
   <div class="sub-title">🧩 Co-author</div>
   <ol class="pub-list">
     <li class="pub-item">Jinyi Huang, Hao Zheng, <strong>Yinwang Ren</strong>, Wenqing Wan, Xun Xu, Jan Polzer. (2027). Video2Knowledge: Extracting temporally consistent task knowledge from monocular video for robot skill learning. <em>Robotics and Computer-Integrated Manufacturing</em>. <a href="https://doi.org/10.1016/j.rcim.2026.103371" target="_blank">DOI</a></li>
     <li class="pub-item">Jingsheng He, Shiyi Cu, Hui Xia, Yong Sun, Wenchao Xiao, <strong>Yinwang Ren</strong>. (2025). High Accuracy Roll Forming Springback Prediction Model of SVR Based on SA-PSO Optimization. <em>Journal of Intelligent Manufacturing</em>. <a href="https://doi.org/10.1007/s10845-023-02222-0" target="_blank">DOI</a></li>
-    <li class="pub-item">Jie Dong, <strong>Yinwang Ren</strong>, et al. (2024). A novel real data-driven springback prediction method for roll forming based on digital twin. <em>International Journal of Computer Integrated Manufacturing</em>. <a href="https://doi.org/10.1080/0951192X.2025.2478012" target="_blank">DOI</a></li>
-    <li class="pub-item">J. He, <strong>Y. Ren</strong>, et al. (2024). Data-Driven Approach for Minimizing Springback in Roll Forming: An Adaptive Process Parameter Control Strategy. <em>43rd IDDRG 2024</em>. <a href="https://doi.org/10.1088/1757-899X/1307/1/012033" target="_blank">DOI</a></li>
+    <li class="pub-item">Jie Dong, <strong>Yinwang Ren</strong>, Junlang Guo, Kang Wu, Ziliu Xiong, Junfeng Xiao, Yong Sun. (2024). A novel real data-driven springback prediction method for roll forming based on digital twin. <em>International Journal of Computer Integrated Manufacturing</em>. <a href="https://doi.org/10.1080/0951192X.2025.2478012" target="_blank">DOI</a></li>
+    <li class="pub-item">Jingsheng He, <strong>Yinwang Ren</strong>, Yong Sun, Kang Wu, Ziliu Xiong, Junfeng Xiao. (2024). Data-Driven Approach for Minimizing Springback in Roll Forming: An Adaptive Process Parameter Control Strategy. <em>43rd IDDRG 2024</em>. <a href="https://doi.org/10.1088/1757-899X/1307/1/012033" target="_blank">DOI</a></li>
   </ol>
   <div class="sub-title">📘 Book Chapter</div>
   <ol class="pub-list">
-    <li class="pub-item"><em>Flexible 3D Profile Roll Forming Technology.</em> In <em>Flexible Metal Forming Technologies</em>, Chapter 5, 2022. <a href="https://doi.org/10.1007/978-981-19-1348-8" target="_blank">DOI</a></li>
+    <li class="pub-item">Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Hui Xia, Shiyi Cu, Jie Dong, <strong>Yinwang Ren</strong>. (2022). <em>Flexible 3D Profile Roll Forming Technology.</em> In <em>Flexible Metal Forming Technologies</em>, Chapter 5. <a href="https://doi.org/10.1007/978-981-19-1348-8_5" target="_blank">DOI</a></li>
   </ol>
 </div>
 <div class="lang-zh">
   <div class="section-title"><span class="emoji">📝</span> 学术论文</div>
   <div class="sub-title">🧠 第一作者</div>
   <ol class="pub-list">
-    <li class="pub-item"><strong>Yinwang Ren</strong> 等 (2025). AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing. <em>Journal of Manufacturing Systems</em>. <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong> 等 (2024). A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming. <em>Advanced Engineering Informatics</em>. <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong> 等 (2024). 智能辊压成形装备（系统）及其应用案例分析. <em>南京航空航天大学学报</em>. <a href="https://doi.org/10.16356/j.1005-2615.2024.01.005" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong> 等 (2022). Digitization of Roll Forming and Its Application. <em>第19届国际金属成形会议 (MF 2022)</em>. <a href="https://doi.org/10.1088/1757-899X/1270/1/012010" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>Yinwang Ren</strong>, Yangyang Liu, Tang Ji, Xun Xu. (2025). AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing. <em>Journal of Manufacturing Systems</em>. <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>Yinwang Ren</strong>, Jie Dong, Jingsheng He, Dongxing Zhang, Kang Wu, Ziliu Xiong, Pai Zheng, Yong Sun, Shimin Liu. (2024). A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming. <em>Advanced Engineering Informatics</em>. <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>任银旺</strong>, 贺靖晟, 刘江, 熊自柳, 肖骏峰, 吴康, 孙勇. (2024). 智能辊压成形装备（系统）及其应用案例分析. <em>南京航空航天大学学报</em>. <a href="https://doi.org/10.16356/j.1005-2615.2024.01.005" target="_blank">DOI</a></li>
+    <li class="pub-item"><strong>Yinwang Ren</strong>, Jie Dong, Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Jun Yang. (2022). Digitization of Roll Forming and Its Application. <em>第19届国际金属成形会议 (MF 2022)</em>. <a href="https://doi.org/10.1088/1757-899X/1270/1/012010" target="_blank">DOI</a></li>
   </ol>
   <div class="sub-title">🧩 合作论文</div>
   <ol class="pub-list">
     <li class="pub-item">Jinyi Huang, Hao Zheng, <strong>Yinwang Ren</strong>, Wenqing Wan, Xun Xu, Jan Polzer. (2027). Video2Knowledge: Extracting temporally consistent task knowledge from monocular video for robot skill learning. <em>Robotics and Computer-Integrated Manufacturing</em>. <a href="https://doi.org/10.1016/j.rcim.2026.103371" target="_blank">DOI</a></li>
     <li class="pub-item">Jingsheng He, Shiyi Cu, Hui Xia, Yong Sun, Wenchao Xiao, <strong>Yinwang Ren</strong>. (2025). High Accuracy Roll Forming Springback Prediction Model of SVR Based on SA-PSO Optimization. <em>Journal of Intelligent Manufacturing</em>. <a href="https://doi.org/10.1007/s10845-023-02222-0" target="_blank">DOI</a></li>
-    <li class="pub-item">Jie Dong, <strong>Yinwang Ren</strong> 等 (2024). A novel real data-driven springback prediction method for roll forming based on digital twin. <em>International Journal of Computer Integrated Manufacturing</em>. <a href="https://doi.org/10.1080/0951192X.2025.2478012" target="_blank">DOI</a></li>
-    <li class="pub-item">J. He, <strong>Y. Ren</strong> 等 (2024). Data-Driven Approach for Minimizing Springback in Roll Forming. <em>第43届IDDRG 2024</em>. <a href="https://doi.org/10.1088/1757-899X/1307/1/012033" target="_blank">DOI</a></li>
+    <li class="pub-item">Jie Dong, <strong>Yinwang Ren</strong>, Junlang Guo, Kang Wu, Ziliu Xiong, Junfeng Xiao, Yong Sun. (2024). A novel real data-driven springback prediction method for roll forming based on digital twin. <em>International Journal of Computer Integrated Manufacturing</em>. <a href="https://doi.org/10.1080/0951192X.2025.2478012" target="_blank">DOI</a></li>
+    <li class="pub-item">Jingsheng He, <strong>Yinwang Ren</strong>, Yong Sun, Kang Wu, Ziliu Xiong, Junfeng Xiao. (2024). Data-Driven Approach for Minimizing Springback in Roll Forming. <em>第43届IDDRG 2024</em>. <a href="https://doi.org/10.1088/1757-899X/1307/1/012033" target="_blank">DOI</a></li>
   </ol>
   <div class="sub-title">📘 著作 / 书籍章节</div>
   <ol class="pub-list">
-    <li class="pub-item"><em>柔性三维型材辊压成形技术.</em> 载于《柔性金属成形技术》第5章, 2022. <a href="https://doi.org/10.1007/978-981-19-1348-8" target="_blank">DOI</a></li>
+    <li class="pub-item">Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Hui Xia, Shiyi Cu, Jie Dong, <strong>Yinwang Ren</strong>. (2022). <em>柔性三维型材辊压成形技术.</em> 载于《柔性金属成形技术》第5章. <a href="https://doi.org/10.1007/978-981-19-1348-8_5" target="_blank">DOI</a></li>
   </ol>
 </div>
 </section>
@@ -471,12 +483,14 @@ footer {
 <section class="section" id="patents">
 <div class="lang-en">
   <div class="section-title"><span class="emoji">📖</span> Patents</div>
+  <div class="collapsible-section" id="patents-en-more">
   <div class="sub-title">🏅 Granted</div>
   <ul class="patent-list">
     <li class="patent-item"><em>A Scan Measurement Device for Online Detection.</em><div class="authors">Yong Sun, <strong>Yinwang Ren</strong>, Jingsheng He, Qiuquan Guo, Dongxing Zhang, Jun Yang.</div></li>
     <li class="patent-item"><em>A Method for Establishing Target Prediction Optimization Model Based on Full Feature Fusion.</em><div class="authors">Chao Li, Guangqiang Yin, Zhiqao Wang, Fei Tang, <strong>Yinwang Ren</strong>, Xiaoyu Yang, Ruoxi Lin.</div></li>
     <li class="patent-item"><em>Method, System and Medium for Nonlinear Mechanics Simulation and Prediction of Solid Materials.</em><div class="authors">Yong Sun, Jun Yang, Dongxing Zhang, Qiuquan Guo, Shichao Ding, <strong>Yinwang Ren</strong>.</div></li>
   </ul>
+  <div class="extra-content">
   <div class="sub-title">🔬 Pending</div>
   <ul class="patent-list">
     <li class="patent-item"><em>An Artificial Intelligence Algorithm for Predicting and Controlling Roll Forming.</em><div class="authors">Yong Sun, <strong>Yinwang Ren</strong>, Jingsheng He, Qiuquan Guo, Dongxing Zhang, Jun Yang.</div></li>
@@ -487,15 +501,20 @@ footer {
     <li class="patent-item"><em>A Roll Forming Production System Based on Electro-Cylinder Control.</em><div class="authors">Yong Sun, Junlang Guo, <strong>Yinwang Ren</strong>, Jiang Liu, et al.</div></li>
     <li class="patent-item"><em>One Residual Stress Detection Device and Method.</em><div class="authors">Yong Sun, Jun Yang, Dongxing Zhang, Qiuquan Guo, Shichao Ding, <strong>Yinwang Ren</strong>.</div></li>
   </ul>
+  </div>
+  </div>
+  <button class="show-more-btn" type="button" aria-expanded="false" aria-controls="patents-en-more" onclick="toggleExpanded('patents-en-more', this, 'Show 7 pending patents', 'Hide pending patents')">Show 7 pending patents</button>
 </div>
 <div class="lang-zh">
   <div class="section-title"><span class="emoji">📖</span> 专利</div>
+  <div class="collapsible-section" id="patents-zh-more">
   <div class="sub-title">🏅 已授权</div>
   <ul class="patent-list">
     <li class="patent-item"><em>一种可在线检测的扫描测量仪</em><div class="authors">孙勇, <strong>任银旺</strong>, 贺静生, 郭秋权, 张东星, 杨俊.</div></li>
     <li class="patent-item"><em>一种基于全特征融合建立目标预判优化模型的方法</em><div class="authors">李超, 殷光强, 汪志超, 唐飞, <strong>任银旺</strong>, 杨晓宇, 林若溪.</div></li>
     <li class="patent-item"><em>一种用于固体材料非线性力学仿真与预测的方法、系统及介质</em><div class="authors">孙勇, 杨俊, 张东星, 郭秋权, 丁世超, <strong>任银旺</strong>.</div></li>
   </ul>
+  <div class="extra-content">
   <div class="sub-title">🔬 在审</div>
   <ul class="patent-list">
     <li class="patent-item"><em>一种用于预测与控制辊压成型的人工智能算法</em><div class="authors">孙勇, <strong>任银旺</strong>, 贺静生, 郭秋权, 张东星, 杨俊.</div></li>
@@ -506,6 +525,9 @@ footer {
     <li class="patent-item"><em>一种基于电缸控制的辊压成形生产系统</em><div class="authors">孙勇, 郭俊朗, <strong>任银旺</strong>, 刘江 等.</div></li>
     <li class="patent-item"><em>一种残余应力检测装置及方法</em><div class="authors">孙勇, 杨俊, 张东星, 郭秋权, 丁世超, <strong>任银旺</strong>.</div></li>
   </ul>
+  </div>
+  </div>
+  <button class="show-more-btn" type="button" aria-expanded="false" aria-controls="patents-zh-more" onclick="toggleExpanded('patents-zh-more', this, '展开 7 项在审专利', '收起在审专利')">展开 7 项在审专利</button>
 </div>
 </section>
 
@@ -567,31 +589,37 @@ footer {
 <section class="section" id="awards">
 <div class="lang-en">
   <div class="section-title"><span class="emoji">🏆</span> Honors and Awards</div>
-  <div class="award-grid">
+  <div class="award-grid" id="awards-en-more">
     <div class="award-card"><span class="award-emoji">🥈</span><div class="award-name">National College Student Innovation and Entrepreneurship Competition – Silver Award (Team Leader)</div><span class="award-meta">National · 2025</span></div>
     <div class="award-card"><span class="award-emoji">🎓</span><div class="award-name">National Graduate Scholarship</div><span class="award-meta">National · 2023</span></div>
     <div class="award-card"><span class="award-emoji">🎓</span><div class="award-name">National Graduate Scholarship</div><span class="award-meta">National · 2022</span></div>
     <div class="award-card"><span class="award-emoji">🌟</span><div class="award-name">Sichuan Province Outstanding Graduate</div><span class="award-meta">Provincial · 2023</span></div>
     <div class="award-card"><span class="award-emoji">🎖️</span><div class="award-name">UESTC Outstanding Graduate</div><span class="award-meta">University · 2023</span></div>
+    <div class="extra-content">
     <div class="award-card"><span class="award-emoji">🏆</span><div class="award-name">"Challenge Cup" – Second Prize (Team Leader)</div><span class="award-meta">National · 2023</span></div>
     <div class="award-card"><span class="award-emoji">📌</span><div class="award-name">Best Poster – Guangdong Province Postgraduates Academic Forum</div><span class="award-meta">Provincial · 2022</span></div>
     <div class="award-card"><span class="award-emoji">🤖</span><div class="award-name">China Robot Competition – Second Prize (Team Leader)</div><span class="award-meta">National · 2019</span></div>
     <div class="award-card"><span class="award-emoji">🤖</span><div class="award-name">ROBOCUP Robot World Cup China – Second Prize</div><span class="award-meta">National · 2019</span></div>
+    </div>
   </div>
+  <button class="show-more-btn" type="button" aria-expanded="false" aria-controls="awards-en-more" onclick="toggleExpanded('awards-en-more', this, 'Show 4 more awards', 'Show fewer awards')">Show 4 more awards</button>
 </div>
 <div class="lang-zh">
   <div class="section-title"><span class="emoji">🏆</span> 荣誉与奖项</div>
-  <div class="award-grid">
+  <div class="award-grid" id="awards-zh-more">
     <div class="award-card"><span class="award-emoji">🥈</span><div class="award-name">中国国际大学生创新大赛 – 银奖（团队负责人）</div><span class="award-meta">国家级 · 2025</span></div>
     <div class="award-card"><span class="award-emoji">🎓</span><div class="award-name">国家奖学金</div><span class="award-meta">国家级 · 2023</span></div>
     <div class="award-card"><span class="award-emoji">🎓</span><div class="award-name">国家奖学金</div><span class="award-meta">国家级 · 2022</span></div>
     <div class="award-card"><span class="award-emoji">🌟</span><div class="award-name">四川省优秀毕业研究生</div><span class="award-meta">省级 · 2023</span></div>
     <div class="award-card"><span class="award-emoji">🎖️</span><div class="award-name">电子科技大学优秀毕业研究生</div><span class="award-meta">校级 · 2023</span></div>
+    <div class="extra-content">
     <div class="award-card"><span class="award-emoji">🏆</span><div class="award-name">"挑战杯"全国大学生课外学术科技作品竞赛 – 二等奖（团队负责人）</div><span class="award-meta">国家级 · 2023</span></div>
     <div class="award-card"><span class="award-emoji">📌</span><div class="award-name">最佳墙报展示 – 广东省研究生学术论坛</div><span class="award-meta">省级 · 2022</span></div>
     <div class="award-card"><span class="award-emoji">🤖</span><div class="award-name">中国机器人大赛 – 二等奖（团队负责人）</div><span class="award-meta">国家级 · 2019</span></div>
     <div class="award-card"><span class="award-emoji">🤖</span><div class="award-name">ROBOCUP机器人世界杯中国赛 – 二等奖</div><span class="award-meta">国家级 · 2019</span></div>
+    </div>
   </div>
+  <button class="show-more-btn" type="button" aria-expanded="false" aria-controls="awards-zh-more" onclick="toggleExpanded('awards-zh-more', this, '展开另外 4 项荣誉', '收起部分荣誉')">展开另外 4 项荣誉</button>
 </div>
 </section>
 
@@ -638,6 +666,12 @@ function toggleLang() {
   var c = document.documentElement.getAttribute('data-lang') || 'en';
   setLang(c === 'en' ? 'zh' : 'en');
 }
+function toggleExpanded(targetId, button, showText, hideText) {
+  var target = document.getElementById(targetId);
+  var expanded = target.classList.toggle('expanded');
+  button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  button.textContent = expanded ? hideText : showText;
+}
 setLang(localStorage.getItem('site-lang') || 'en');
 
 var years = document.querySelectorAll('.year');
@@ -645,7 +679,7 @@ for (var i = 0; i < years.length; i++) years[i].textContent = new Date().getFull
 </script>
 
 <!-- Cloudflare Web Analytics -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d63a9baf8d8a4edfbb097101b06c549c"}'></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;d63a9baf8d8a4edfbb097101b06c549c&quot;}"></script>
 <!-- End Cloudflare Web Analytics -->
 
 </body>
