@@ -161,15 +161,16 @@ a:hover { text-decoration: underline; }
 
 /* RESEARCH */
 .research-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;
+  display: grid; grid-template-columns: 1fr; gap: 8px;
 }
 .research-card {
-  padding: 14px; background: var(--bg-section); border-radius: 10px;
-  border-top: 3px solid var(--primary); transition: transform 0.2s, box-shadow 0.2s;
+  display: grid; grid-template-columns: 200px 1fr; gap: 6px 18px; align-items: center;
+  padding: 11px 16px; background: var(--bg-section); border-radius: 10px;
+  border-left: 3px solid var(--primary); transition: transform 0.2s, box-shadow 0.2s;
 }
 .research-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.research-card strong { display: block; margin-bottom: 4px; font-size: 0.93rem; }
-.research-card span { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+.research-card strong { display: block; font-size: 0.93rem; }
+.research-card span { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; }
 
 /* PUBLICATIONS */
 .pub-list { list-style: none; counter-reset: pub; }
@@ -189,6 +190,11 @@ a:hover { text-decoration: underline; }
   display: flex; align-items: center; justify-content: center;
 }
 .pub-item em { color: var(--text-secondary); }
+.pub-title { display: block; font-weight: 600; color: var(--text); line-height: 1.5; }
+.pub-authors { display: block; margin-top: 2px; font-size: 0.85rem; color: var(--text-secondary); }
+.pub-authors strong { color: var(--text); }
+.pub-venue { display: block; margin-top: 2px; font-size: 0.85rem; color: var(--text-secondary); }
+.pub-venue em { font-style: italic; }
 
 /* PATENTS */
 .patent-list { list-style: none; }
@@ -250,6 +256,9 @@ footer {
 .lang-zh { display: none; }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .research-card { grid-template-columns: 1fr; }
+}
 @media (max-width: 860px) {
   .hero { flex-direction: column; padding: calc(var(--nav-height) + 24px) 16px 0; gap: 24px; }
   .sidebar { width: 100%; position: static; }
@@ -258,7 +267,6 @@ footer {
   .social-links a { padding: 6px 12px; }
   .section { padding: 20px 18px; }
   .nav-links a { font-size: 0.78rem; padding: 6px 8px; }
-  .research-grid { grid-template-columns: 1fr; }
   .pub-item { padding-left: 44px; }
   /* keep the language button pinned; let the links scroll instead */
   nav { padding: 0 12px; }
@@ -439,42 +447,42 @@ footer {
   <div class="section-title"><span class="emoji">📝</span> Publications</div>
   <div class="sub-title">🧠 First Author</div>
   <ol class="pub-list">
-    <li class="pub-item"><strong>Yinwang Ren</strong>, Yangyang Liu, Tang Ji, Xun Xu. (2025). AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing. <em>Journal of Manufacturing Systems</em>. <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong>, Jie Dong, Jingsheng He, Dongxing Zhang, Kang Wu, Ziliu Xiong, Pai Zheng, Yong Sun, Shimin Liu. (2024). A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming. <em>Advanced Engineering Informatics</em>. <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong>, Jingsheng He, Jiang Liu, Ziliu Xiong, Junfeng Xiao, Kang Wu, Yong Sun. (2024). Intelligent Roll Forming Equipment (System) and Analysis of Its Application Cases. <em>Transactions of Nanjing University of Aeronautics and Astronautics</em>. <a href="https://doi.org/10.16356/j.1005-2615.2024.01.005" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong>, Jie Dong, Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Jun Yang. (2022). Digitization of Roll Forming and Its Application. <em>The 19th International Conference on Metal Forming (MF 2022)</em>. <a href="https://doi.org/10.1088/1757-899X/1270/1/012010" target="_blank">DOI</a></li>
+    <li class="pub-item"><span class="pub-title">AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing</span><span class="pub-authors"><strong>Yinwang Ren</strong>, Yangyang Liu, Tang Ji, Xun Xu</span><span class="pub-venue"><em>Journal of Manufacturing Systems</em>, 2025. <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming</span><span class="pub-authors"><strong>Yinwang Ren</strong>, Jie Dong, Jingsheng He, Dongxing Zhang, Kang Wu, Ziliu Xiong, Pai Zheng, Yong Sun, Shimin Liu</span><span class="pub-venue"><em>Advanced Engineering Informatics</em>, 2024. <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">Intelligent Roll Forming Equipment (System) and Analysis of Its Application Cases</span><span class="pub-authors"><strong>Yinwang Ren</strong>, Jingsheng He, Jiang Liu, Ziliu Xiong, Junfeng Xiao, Kang Wu, Yong Sun</span><span class="pub-venue"><em>Transactions of Nanjing University of Aeronautics and Astronautics</em>, 2024. <a href="https://doi.org/10.16356/j.1005-2615.2024.01.005" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">Digitization of Roll Forming and Its Application</span><span class="pub-authors"><strong>Yinwang Ren</strong>, Jie Dong, Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Jun Yang</span><span class="pub-venue"><em>The 19th International Conference on Metal Forming (MF 2022)</em>, 2022. <a href="https://doi.org/10.1088/1757-899X/1270/1/012010" target="_blank">DOI</a></span></li>
   </ol>
   <div class="sub-title">🧩 Co-author</div>
   <ol class="pub-list">
-    <li class="pub-item">Jinyi Huang, Hao Zheng, <strong>Yinwang Ren</strong>, Wenqing Wan, Xun Xu, Jan Polzer. (2027). Video2Knowledge: Extracting temporally consistent task knowledge from monocular video for robot skill learning. <em>Robotics and Computer-Integrated Manufacturing</em>. <a href="https://doi.org/10.1016/j.rcim.2026.103371" target="_blank">DOI</a></li>
-    <li class="pub-item">Jingsheng He, Shiyi Cu, Hui Xia, Yong Sun, Wenchao Xiao, <strong>Yinwang Ren</strong>. (2025). High Accuracy Roll Forming Springback Prediction Model of SVR Based on SA-PSO Optimization. <em>Journal of Intelligent Manufacturing</em>. <a href="https://doi.org/10.1007/s10845-023-02222-0" target="_blank">DOI</a></li>
-    <li class="pub-item">Jie Dong, <strong>Yinwang Ren</strong>, Junlang Guo, Kang Wu, Ziliu Xiong, Junfeng Xiao, Yong Sun. (2024). A novel real data-driven springback prediction method for roll forming based on digital twin. <em>International Journal of Computer Integrated Manufacturing</em>. <a href="https://doi.org/10.1080/0951192X.2025.2478012" target="_blank">DOI</a></li>
-    <li class="pub-item">Jingsheng He, <strong>Yinwang Ren</strong>, Yong Sun, Kang Wu, Ziliu Xiong, Junfeng Xiao. (2024). Data-Driven Approach for Minimizing Springback in Roll Forming: An Adaptive Process Parameter Control Strategy. <em>43rd IDDRG 2024</em>. <a href="https://doi.org/10.1088/1757-899X/1307/1/012033" target="_blank">DOI</a></li>
+    <li class="pub-item"><span class="pub-title">Video2Knowledge: Extracting temporally consistent task knowledge from monocular video for robot skill learning</span><span class="pub-authors">Jinyi Huang, Hao Zheng, <strong>Yinwang Ren</strong>, Wenqing Wan, Xun Xu, Jan Polzer</span><span class="pub-venue"><em>Robotics and Computer-Integrated Manufacturing</em>, 2027. <a href="https://doi.org/10.1016/j.rcim.2026.103371" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">High Accuracy Roll Forming Springback Prediction Model of SVR Based on SA-PSO Optimization</span><span class="pub-authors">Jingsheng He, Shiyi Cu, Hui Xia, Yong Sun, Wenchao Xiao, <strong>Yinwang Ren</strong></span><span class="pub-venue"><em>Journal of Intelligent Manufacturing</em>, 2025. <a href="https://doi.org/10.1007/s10845-023-02222-0" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">A novel real data-driven springback prediction method for roll forming based on digital twin</span><span class="pub-authors">Jie Dong, <strong>Yinwang Ren</strong>, Junlang Guo, Kang Wu, Ziliu Xiong, Junfeng Xiao, Yong Sun</span><span class="pub-venue"><em>International Journal of Computer Integrated Manufacturing</em>, 2024. <a href="https://doi.org/10.1080/0951192X.2025.2478012" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">Data-Driven Approach for Minimizing Springback in Roll Forming: An Adaptive Process Parameter Control Strategy</span><span class="pub-authors">Jingsheng He, <strong>Yinwang Ren</strong>, Yong Sun, Kang Wu, Ziliu Xiong, Junfeng Xiao</span><span class="pub-venue"><em>43rd IDDRG 2024</em>, 2024. <a href="https://doi.org/10.1088/1757-899X/1307/1/012033" target="_blank">DOI</a></span></li>
   </ol>
   <div class="sub-title">📘 Book Chapter</div>
   <ol class="pub-list">
-    <li class="pub-item">Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Hui Xia, Shiyi Cu, Jie Dong, <strong>Yinwang Ren</strong>. (2022). <em>Flexible 3D Profile Roll Forming Technology.</em> In <em>Flexible Metal Forming Technologies</em>, Chapter 5. <a href="https://doi.org/10.1007/978-981-19-1348-8_5" target="_blank">DOI</a></li>
+    <li class="pub-item"><span class="pub-title">Flexible 3D Profile Roll Forming Technology</span><span class="pub-authors">Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Hui Xia, Shiyi Cu, Jie Dong, <strong>Yinwang Ren</strong></span><span class="pub-venue">In <em>Flexible Metal Forming Technologies</em>, Chapter 5, 2022. <a href="https://doi.org/10.1007/978-981-19-1348-8_5" target="_blank">DOI</a></span></li>
   </ol>
 </div>
 <div class="lang-zh">
   <div class="section-title"><span class="emoji">📝</span> 学术论文</div>
   <div class="sub-title">🧠 第一作者</div>
   <ol class="pub-list">
-    <li class="pub-item"><strong>Yinwang Ren</strong>, Yangyang Liu, Tang Ji, Xun Xu. (2025). AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing. <em>Journal of Manufacturing Systems</em>. <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong>, Jie Dong, Jingsheng He, Dongxing Zhang, Kang Wu, Ziliu Xiong, Pai Zheng, Yong Sun, Shimin Liu. (2024). A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming. <em>Advanced Engineering Informatics</em>. <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>任银旺</strong>, 贺靖晟, 刘江, 熊自柳, 肖骏峰, 吴康, 孙勇. (2024). 智能辊压成形装备（系统）及其应用案例分析. <em>南京航空航天大学学报</em>. <a href="https://doi.org/10.16356/j.1005-2615.2024.01.005" target="_blank">DOI</a></li>
-    <li class="pub-item"><strong>Yinwang Ren</strong>, Jie Dong, Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Jun Yang. (2022). Digitization of Roll Forming and Its Application. <em>第19届国际金属成形会议 (MF 2022)</em>. <a href="https://doi.org/10.1088/1757-899X/1270/1/012010" target="_blank">DOI</a></li>
+    <li class="pub-item"><span class="pub-title">AI Agents and Agentic AI-navigating a plethora of concepts for future manufacturing</span><span class="pub-authors"><strong>Yinwang Ren</strong>, Yangyang Liu, Tang Ji, Xun Xu</span><span class="pub-venue"><em>Journal of Manufacturing Systems</em>, 2025. <a href="https://doi.org/10.1016/j.jmsy.2025.08.017" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">A Novel Six-Dimensional Digital Twin Model for Data Management and its Application in Roll Forming</span><span class="pub-authors"><strong>Yinwang Ren</strong>, Jie Dong, Jingsheng He, Dongxing Zhang, Kang Wu, Ziliu Xiong, Pai Zheng, Yong Sun, Shimin Liu</span><span class="pub-venue"><em>Advanced Engineering Informatics</em>, 2024. <a href="https://doi.org/10.1016/j.aei.2024.102555" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">智能辊压成形装备（系统）及其应用案例分析</span><span class="pub-authors"><strong>任银旺</strong>, 贺靖晟, 刘江, 熊自柳, 肖骏峰, 吴康, 孙勇</span><span class="pub-venue"><em>南京航空航天大学学报</em>, 2024. <a href="https://doi.org/10.16356/j.1005-2615.2024.01.005" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">Digitization of Roll Forming and Its Application</span><span class="pub-authors"><strong>Yinwang Ren</strong>, Jie Dong, Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Jun Yang</span><span class="pub-venue"><em>第19届国际金属成形会议 (MF 2022)</em>, 2022. <a href="https://doi.org/10.1088/1757-899X/1270/1/012010" target="_blank">DOI</a></span></li>
   </ol>
   <div class="sub-title">🧩 合作论文</div>
   <ol class="pub-list">
-    <li class="pub-item">Jinyi Huang, Hao Zheng, <strong>Yinwang Ren</strong>, Wenqing Wan, Xun Xu, Jan Polzer. (2027). Video2Knowledge: Extracting temporally consistent task knowledge from monocular video for robot skill learning. <em>Robotics and Computer-Integrated Manufacturing</em>. <a href="https://doi.org/10.1016/j.rcim.2026.103371" target="_blank">DOI</a></li>
-    <li class="pub-item">Jingsheng He, Shiyi Cu, Hui Xia, Yong Sun, Wenchao Xiao, <strong>Yinwang Ren</strong>. (2025). High Accuracy Roll Forming Springback Prediction Model of SVR Based on SA-PSO Optimization. <em>Journal of Intelligent Manufacturing</em>. <a href="https://doi.org/10.1007/s10845-023-02222-0" target="_blank">DOI</a></li>
-    <li class="pub-item">Jie Dong, <strong>Yinwang Ren</strong>, Junlang Guo, Kang Wu, Ziliu Xiong, Junfeng Xiao, Yong Sun. (2024). A novel real data-driven springback prediction method for roll forming based on digital twin. <em>International Journal of Computer Integrated Manufacturing</em>. <a href="https://doi.org/10.1080/0951192X.2025.2478012" target="_blank">DOI</a></li>
-    <li class="pub-item">Jingsheng He, <strong>Yinwang Ren</strong>, Yong Sun, Kang Wu, Ziliu Xiong, Junfeng Xiao. (2024). Data-Driven Approach for Minimizing Springback in Roll Forming. <em>第43届IDDRG 2024</em>. <a href="https://doi.org/10.1088/1757-899X/1307/1/012033" target="_blank">DOI</a></li>
+    <li class="pub-item"><span class="pub-title">Video2Knowledge: Extracting temporally consistent task knowledge from monocular video for robot skill learning</span><span class="pub-authors">Jinyi Huang, Hao Zheng, <strong>Yinwang Ren</strong>, Wenqing Wan, Xun Xu, Jan Polzer</span><span class="pub-venue"><em>Robotics and Computer-Integrated Manufacturing</em>, 2027. <a href="https://doi.org/10.1016/j.rcim.2026.103371" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">High Accuracy Roll Forming Springback Prediction Model of SVR Based on SA-PSO Optimization</span><span class="pub-authors">Jingsheng He, Shiyi Cu, Hui Xia, Yong Sun, Wenchao Xiao, <strong>Yinwang Ren</strong></span><span class="pub-venue"><em>Journal of Intelligent Manufacturing</em>, 2025. <a href="https://doi.org/10.1007/s10845-023-02222-0" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">A novel real data-driven springback prediction method for roll forming based on digital twin</span><span class="pub-authors">Jie Dong, <strong>Yinwang Ren</strong>, Junlang Guo, Kang Wu, Ziliu Xiong, Junfeng Xiao, Yong Sun</span><span class="pub-venue"><em>International Journal of Computer Integrated Manufacturing</em>, 2024. <a href="https://doi.org/10.1080/0951192X.2025.2478012" target="_blank">DOI</a></span></li>
+    <li class="pub-item"><span class="pub-title">Data-Driven Approach for Minimizing Springback in Roll Forming</span><span class="pub-authors">Jingsheng He, <strong>Yinwang Ren</strong>, Yong Sun, Kang Wu, Ziliu Xiong, Junfeng Xiao</span><span class="pub-venue"><em>第43届IDDRG 2024</em>, 2024. <a href="https://doi.org/10.1088/1757-899X/1307/1/012033" target="_blank">DOI</a></span></li>
   </ol>
   <div class="sub-title">📘 著作 / 书籍章节</div>
   <ol class="pub-list">
-    <li class="pub-item">Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Hui Xia, Shiyi Cu, Jie Dong, <strong>Yinwang Ren</strong>. (2022). <em>柔性三维型材辊压成形技术.</em> 载于《柔性金属成形技术》第5章. <a href="https://doi.org/10.1007/978-981-19-1348-8_5" target="_blank">DOI</a></li>
+    <li class="pub-item"><span class="pub-title">柔性三维型材辊压成形技术</span><span class="pub-authors">Yong Sun, Albert Sedlmaier, Qiuquan Guo, Dongxing Zhang, Hui Xia, Shiyi Cu, Jie Dong, <strong>Yinwang Ren</strong></span><span class="pub-venue">载于《柔性金属成形技术》第5章, 2022. <a href="https://doi.org/10.1007/978-981-19-1348-8_5" target="_blank">DOI</a></span></li>
   </ol>
 </div>
 </section>
