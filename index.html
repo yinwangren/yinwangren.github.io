@@ -222,7 +222,22 @@ a:hover { text-decoration: underline; }
   padding: 9px 14px; background: var(--bg-section); border-radius: 8px;
   display: flex; align-items: center; gap: 12px; cursor: default;
 }
-.award-emoji { font-size: 1.05rem; flex-shrink: 0; line-height: 1; }
+.award-emoji { font-size: 1.05rem; flex-shrink: 0; line-height: 1; width: 34px; text-align: center; }
+.award-thumb {
+  flex-shrink: 0; width: 34px; height: 46px; padding: 0; border: 1px solid var(--border, #dadce0);
+  border-radius: 4px; overflow: hidden; background: #fff; cursor: zoom-in;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.award-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.award-thumb:hover { transform: scale(1.08); box-shadow: var(--shadow-md); }
+.award-thumb:focus-visible { outline: 3px solid rgba(26,115,232,0.3); outline-offset: 2px; }
+.lightbox {
+  position: fixed; inset: 0; z-index: 1000; display: none;
+  align-items: center; justify-content: center; padding: 24px;
+  background: rgba(0,0,0,0.8); cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 100%; max-height: 100%; border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,0.5); background: #fff; }
 .award-name { font-weight: 600; font-size: 0.88rem; line-height: 1.4; flex: 1; }
 .award-meta {
   font-size: 0.78rem; color: var(--text-light); font-weight: 500;
@@ -600,7 +615,7 @@ footer {
 <div class="lang-en">
   <div class="section-title"><span class="emoji">🏆</span> Honors and Awards</div>
   <div class="award-grid" id="awards-en-more">
-    <div class="award-card"><span class="award-emoji">🥈</span><div class="award-name">National College Student Innovation and Entrepreneurship Competition – Silver Award (Team Leader)</div><span class="award-meta">National · 2025</span></div>
+    <div class="award-card"><button class="award-thumb" type="button" data-full="images/awards/innovation-2025.jpg" aria-label="View certificate: Silver Award, China International College Students' Innovation Competition 2025"><img src="images/awards/innovation-2025-thumb.jpg" alt="" loading="lazy"></button><div class="award-name">China International College Students' Innovation Competition 2025 – Silver Award (Team Leader)</div><span class="award-meta">National · 2025</span></div>
     <div class="award-card"><span class="award-emoji">🎓</span><div class="award-name">National Graduate Scholarship</div><span class="award-meta">National · 2023</span></div>
     <div class="award-card"><span class="award-emoji">🎓</span><div class="award-name">National Graduate Scholarship</div><span class="award-meta">National · 2022</span></div>
     <div class="award-card"><span class="award-emoji">🌟</span><div class="award-name">Sichuan Province Outstanding Graduate</div><span class="award-meta">Provincial · 2023</span></div>
@@ -617,7 +632,7 @@ footer {
 <div class="lang-zh">
   <div class="section-title"><span class="emoji">🏆</span> 荣誉与奖项</div>
   <div class="award-grid" id="awards-zh-more">
-    <div class="award-card"><span class="award-emoji">🥈</span><div class="award-name">中国国际大学生创新大赛 – 银奖（团队负责人）</div><span class="award-meta">国家级 · 2025</span></div>
+    <div class="award-card"><button class="award-thumb" type="button" data-full="images/awards/innovation-2025.jpg" aria-label="查看证书：中国国际大学生创新大赛银奖"><img src="images/awards/innovation-2025-thumb.jpg" alt="" loading="lazy"></button><div class="award-name">中国国际大学生创新大赛 – 银奖（团队负责人）</div><span class="award-meta">国家级 · 2025</span></div>
     <div class="award-card"><span class="award-emoji">🎓</span><div class="award-name">国家奖学金</div><span class="award-meta">国家级 · 2023</span></div>
     <div class="award-card"><span class="award-emoji">🎓</span><div class="award-name">国家奖学金</div><span class="award-meta">国家级 · 2022</span></div>
     <div class="award-card"><span class="award-emoji">🌟</span><div class="award-name">四川省优秀毕业研究生</div><span class="award-meta">省级 · 2023</span></div>
@@ -640,6 +655,8 @@ footer {
   <span class="lang-en">&copy; <span class="year">2026</span> Yinwang Ren. All rights reserved.</span>
   <span class="lang-zh">&copy; <span class="year">2026</span> 任银旺 (Yinwang Ren). All rights reserved.</span>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Certificate"><img alt="Award certificate"></div>
 
 <script>
 function setLang(lang) {
@@ -683,6 +700,28 @@ function toggleExpanded(targetId, button, showText, hideText) {
   button.textContent = expanded ? hideText : showText;
 }
 setLang(localStorage.getItem('site-lang') || 'en');
+
+var lightbox = document.getElementById('lightbox');
+var lightboxImg = lightbox.querySelector('img');
+var lightboxOpener = null;
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightboxImg.removeAttribute('src');
+  if (lightboxOpener) lightboxOpener.focus();
+}
+document.addEventListener('click', function (e) {
+  var thumb = e.target.closest ? e.target.closest('.award-thumb') : null;
+  if (thumb) {
+    lightboxOpener = thumb;
+    lightboxImg.src = thumb.getAttribute('data-full');
+    lightbox.classList.add('open');
+  } else if (lightbox.classList.contains('open')) {
+    closeLightbox();
+  }
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+});
 
 var years = document.querySelectorAll('.year');
 for (var i = 0; i < years.length; i++) years[i].textContent = new Date().getFullYear();
